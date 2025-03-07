@@ -4,9 +4,9 @@ import java.util.Scanner;
 public class JobScheduler {
 
 	    private int[][] processes; // Arrival time and burst time for each process
-	    private int[] completionTime; // Completion time for each process
-	    private int[] waitingTime; // Waiting time for each process
-	    private int[] turnaroundTime; // Turnaround time for each process
+	    private int[] completionTime;
+	    private int[] waitingTime; 
+	    private int[] turnaroundTime; 
 
 	    public JobScheduler(int[][] processes) {
 	        this.processes = processes;
@@ -80,17 +80,6 @@ public class JobScheduler {
 	        return maxWaitingTime;
 	    }
 
-	    public int[] getCompletionTime() {
-	        return completionTime;
-	    }
-
-	    public int[] getWaitingTime() {
-	        return waitingTime;
-	    }
-
-	    public int[] getTurnaroundTime() {
-	        return turnaroundTime;
-	    }
 
 
 	    public static void main(String[] args) {
@@ -115,42 +104,14 @@ public class JobScheduler {
 	        scheduler.calculateWaitingTime();
 	        scheduler.calculateTurnaroundTime();
 
-	        while (true) {
-	            System.out.println("\nMenu:");
-	            System.out.println("1. Display Completion Times");
-	            System.out.println("2. Display Waiting Times");
-	            System.out.println("3. Display Turnaround Times");
-	            System.out.println("4. Display Average Waiting Time");
-	            System.out.println("5. Display Maximum Waiting Time");
-	            System.out.println("6. Exit");
-
-	            System.out.print("Enter your choice: ");
-	            int choice = scanner.nextInt();
-
-	            switch (choice) {
-	                case 1:
-	                    System.out.println("Completion Times: " + Arrays.toString(scheduler.getCompletionTime()));
-	                    break;
-	                case 2:
-	                    System.out.println("Waiting Times: " + Arrays.toString(scheduler.getWaitingTime()));
-	                    break;
-	                case 3:
-	                    System.out.println("Turnaround Times: " + Arrays.toString(scheduler.getTurnaroundTime()));
-	                    break;
-	                case 4:
+	   
+	                    System.out.println("Completion Times: " + Arrays.toString(scheduler.completionTime));
+	                    System.out.println("Waiting Times: " + Arrays.toString(scheduler.waitingTime));
+	                    System.out.println("Turnaround Times: " + Arrays.toString(scheduler.turnaroundTime));
 	                    System.out.println("Average Waiting Time: " + scheduler.calculateAverageWaitingTime());
-	                    break;
-	                case 5:
 	                    System.out.println("Maximum Waiting Time: " + scheduler.findMaximumWaitingTime());
-	                    break;
-	                case 6:
-	                    System.out.println("Exiting...");
-	                    scanner.close();
-	                    return;
-	                default:
-	                    System.out.println("Invalid choice. Please try again.");
-	            }
-	        }
+	        
+	    
 	    }
 	}
 
